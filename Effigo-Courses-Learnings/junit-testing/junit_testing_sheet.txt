@@ -1,0 +1,82 @@
+JUnit Commands Cheat Sheet with Explanations
+
+1. Setting Up JUnit in Maven
+
+Add JUnit Dependency (JUnit 5):
+<dependency>
+    <groupId>org.junit.jupiter</groupId>
+    <artifactId>junit-jupiter-api</artifactId>
+    <version>5.7.1</version>
+    <scope>test</scope>
+</dependency>
+(Adds JUnit 5 as a dependency in pom.xml for running tests.)
+
+2. Writing a Basic JUnit Test
+
+Basic JUnit 5 Test Example:
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+class MyTest {
+    @Test
+    void additionTest() {
+        assertEquals(2 + 2, 4);
+    }
+}
+(Defines a simple test case using JUnit.)
+
+3. Running Tests
+
+Run Tests Using Maven:
+mvn test
+(Executes all test cases in the project.)
+
+Run a Specific Test Class:
+mvn -Dtest=MyTest test
+(Runs only the specified test class.)
+
+Run Tests Skipping Compilation:
+mvn surefire:test
+(Executes tests without recompiling the project.)
+
+4. Assertions in JUnit
+
+Common Assertions:
+assertEquals(expected, actual);
+(Checks if expected and actual values are equal.)
+
+assertNotNull(object);
+(Checks if an object is not null.)
+
+assertTrue(condition);
+(Checks if a condition is true.)
+
+assertThrows(Exception.class, () -> methodCall());
+(Checks if an exception is thrown.)
+
+5. Test Annotations
+
+@Test - Marks a method as a test case.
+@BeforeEach - Runs before each test case.
+@AfterEach - Runs after each test case.
+@BeforeAll - Runs once before all test cases.
+@AfterAll - Runs once after all test cases.
+
+6. Ignoring/Skipping Tests
+
+Disable a Test Method:
+@Disabled
+@Test
+void skippedTest() {
+    // This test will not run
+}
+
+Run Tests Skipping Failures:
+mvn test -DskipTests
+(Skips running tests but still compiles them.)
+
+Run Tests Ignoring Failing Tests:
+mvn test -Dmaven.test.failure.ignore=true
+(Continues execution even if some tests fail.)
+
+

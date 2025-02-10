@@ -1,0 +1,91 @@
+Maven Commands Cheat Sheet with Explanations
+
+1. Maven Setup and Configuration
+
+Check Maven Version:
+mvn -version
+(Displays the installed Maven version and Java details.)
+
+2. Creating and Managing Projects
+
+Create a New Maven Project:
+mvn archetype:generate -DgroupId=com.example -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+(Generates a new Maven project using the quickstart archetype.)
+
+3. Build Lifecycle Commands
+
+Compile the Project:
+mvn compile
+(Compiles the source code of the project.)
+
+Clean the Target Directory:
+mvn clean
+(Removes the target directory containing compiled code and build artifacts.)
+
+Package the Project:
+mvn package
+(Packages the compiled code into a JAR or WAR file.)
+
+Run Tests:
+mvn test
+(Executes the unit tests of the project.)
+
+Install the Project Locally:
+mvn install
+(Installs the package into the local repository for use as a dependency.)
+
+Deploy the Project:
+mvn deploy
+(Deploys the packaged artifact to a remote repository.)
+
+4. Dependency Management
+
+View Dependencies:
+mvn dependency:tree
+(Displays the project's dependency tree.)
+
+Add a Dependency (Example):
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+    <version>2.5.4</version>
+</dependency>
+(Adds a dependency inside the pom.xml file.)
+
+5. Running a Maven Project
+
+Run a Maven Project:
+mvn exec:java -Dexec.mainClass="com.example.Main"
+(Runs a Java class with a main method using Maven.)
+
+6. Updating and Cleaning Dependencies
+
+Update Project Dependencies:
+mvn dependency:resolve
+(Resolves and downloads all required dependencies.)
+
+Force Update of Snapshots and Releases:
+mvn clean install -U
+(Forces Maven to update all snapshots and releases.)
+
+7. Maven Plugins and Goals
+
+Check Available Plugins:
+mvn help:describe -Dplugin=<plugin-name>
+(Displays details about a specific plugin.)
+
+List Available Lifecycle Phases:
+mvn help:describe -Dcmd=install
+(Shows available lifecycle phases.)
+
+8. Skipping Tests and Running in Offline Mode
+
+Skip Tests During Build:
+mvn install -DskipTests
+(Skips executing tests during the build process.)
+
+Run Maven in Offline Mode:
+mvn install -o
+(Runs Maven without accessing remote repositories.)
+
+

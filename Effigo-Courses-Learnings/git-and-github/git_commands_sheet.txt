@@ -1,0 +1,96 @@
+Git Commands Cheat Sheet with Explanations
+
+1. Git Configuration Commands
+
+Set User Information:
+git config --global user.name "Your Name"
+git config --global user.email "your.email@example.com"
+(Sets your global Git username and email.)
+
+Check Configurations:
+git config --list
+(Displays the current Git configuration settings.)
+
+2. Initializing and Cloning a Repository
+
+Initialize a New Git Repository:
+git init
+(Creates a new Git repository in the current directory.)
+
+Clone an Existing Repository:
+git clone <repository_url>
+(Creates a copy of a remote repository to your local machine.)
+
+3. Basic Snapshotting (Staging & Committing)
+
+Check Repository Status:
+git status
+(Shows the current status of the working directory and staging area.)
+
+Add Files to Staging Area:
+git add <file>
+(Stages a specific file for commit.)
+git add .
+(Stages all modified and new files.)
+
+Commit Changes:
+git commit -m "Your commit message"
+(Saves changes to the local repository with a message.)
+
+Amend Last Commit:
+git commit --amend -m "Updated commit message"
+(Modifies the last commit message.)
+
+4. Branching and Merging
+
+Create a New Branch:
+git branch <branch_name>
+(Creates a new branch.)
+
+List Branches:
+git branch
+(Displays all branches in the repository.)
+
+Switch to a Branch:
+git checkout <branch_name>
+(Moves to the specified branch.)
+
+Create and Switch to a New Branch:
+git checkout -b <branch_name>
+(Creates a new branch and switches to it immediately.)
+
+Merge a Branch:
+git merge <branch_name>
+(Merges the specified branch into the current branch.)
+
+Delete a Branch:
+git branch -d <branch_name>
+(Deletes the specified branch if it has been merged.)
+
+Delete a Branch Forcefully:
+git branch -D <branch_name>
+(Deletes the branch even if it hasn't been merged.)
+
+5. Working with Remote Repositories
+
+Add a Remote Repository:
+git remote add origin <repository_url>
+(Links your local repository to a remote server.)
+
+View Remote URLs:
+git remote -v
+(Shows the URLs of the remote repositories.)
+
+Push Changes to Remote Repository:
+git push origin <branch_name>
+(Sends local branch changes to the remote repository.)
+
+Pull Latest Changes from Remote Repository:
+git pull origin <branch_name>
+(Fetches and merges changes from the remote repository.)
+
+Fetch Changes from Remote (Without Merging):
+git fetch origin
+(Downloads changes but does not apply them.)
+
+
