@@ -1,4 +1,4 @@
-//Before you look at the solution, try to write the code yourself!
+
 
 public class FirstProgramSolution {
     public static void main(String[] args) {

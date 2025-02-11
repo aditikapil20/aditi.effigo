@@ -16,17 +16,6 @@ public class AreaCalculator {
     }
 
 
-    //Task 1 - Write a function that calculates the area of a square. 
-
-    /**
-     * Function name: areaSquare - returns the area of a square.
-     * @param side (double)
-     * @return the area (double)
-     * 
-     * Inside the function: 
-     *  1. If the side is negative, print "Error: impossible" and terminate the java program.
-     *  2. Calculate the area of the square. A = side²
-     */
 
     public static double areaSquare(double side) {
         if (side < 0) {
@@ -37,18 +26,7 @@ public class AreaCalculator {
     }
 
 
-    //Task 2 - Write a function that calculates the area of a rectangle. 
-
-    /**
-     * Function name: areaRectangle – returns the area of a rectangle.
-     * @param length (double).
-     * @param width  (double).
-     * @return the area (double)
-     * 
-     * Inside the function: 
-     *  1. If the length OR width is negative, print "Error: impossible" and terminate the program.
-     *  2. Calculate the area of the rectangle. A = length * width
-     */
+    
     public static double areaRectangle(double length, double width) {
         if (length < 0 || width < 0) {
             System.out.println("Not possible");
@@ -58,18 +36,6 @@ public class AreaCalculator {
     } 
 
 
-    //Task 3 - Write a function that calculates the area of a triangle. 
-
-    /**
-     * Function name: areaTriangle – it returns the area of a triangle.
-     * @param base: (double).
-     * @param height: (double).
-     * @return the area (double)
-     * 
-     * Inside the function: 
-     *  1. If the base OR height is negative, print "Error: impossible" and terminate the program.
-     *  2. Calculate the area of the triangle. A = base * height / 2
-     */ 
 
     public static double areaTriangle(double base, double height) {
         if (base < 0 || height < 0) {
@@ -81,18 +47,6 @@ public class AreaCalculator {
     }
 
 
-    //Task 4 - Write a function that calculates the area of circle. 
-
-    /**
-     * Function name: areaCircle – it returns the area of a circle.
-     * @param radius (double).
-     * @return area (double)
-     * 
-     * Inside the function: 
-     *  1. If the radius is negative, terminates the program.
-     *  2. Calculates the area of the circle. 
-     */ 
-
     public static double areaCircle(double radius) {
         if (radius < 0) {
             System.out.println("Not possible");
@@ -101,23 +55,7 @@ public class AreaCalculator {
         return Math.PI*Math.pow(radius, 2);
     }
 
-    //Task 6: Write a function that prints every area.
-
-
-    /**
-     * Function name: printAreas – it prints four areas
-     * @param square – square area (double)
-     * @param rectangle – rectangle area (double)
-     * @param triangle – triangle area (double)
-     * @param circle – circle area (double)
-     * 
-     * Inside the function:
-     *  1. print: ("Square area: <square area>")
-     *  2. print: ("Rectangle area: <rectangle area>")
-     *  3. print: ("Triangle area: <triangle area>")
-     *  4. print: ("Circle area: <circle area>")
-     * 
-     */
+  
 
     public static void printAreas(double square, double rectangle, double triangle, double circle) {
         System.out.println("Square area: " + square);
