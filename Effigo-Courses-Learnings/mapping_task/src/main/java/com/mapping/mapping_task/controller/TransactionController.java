@@ -18,22 +18,19 @@ public class TransactionController {
     @Autowired
     private TransactionService transactionService;
 
-    // Create or Update Transaction
     @PostMapping("/create")
     public ResponseEntity<TransResponseDto> createTransaction(@RequestBody TransRequestDto transRequestDto) {
         TransResponseDto savedTransaction = transactionService.saveTransaction(transRequestDto);
         return new ResponseEntity<>(savedTransaction, HttpStatus.CREATED);
     }
 
-    // Get Transaction by ID
     @GetMapping("/{transactionId}")
     public ResponseEntity<TransResponseDto> getTransactionById(@PathVariable String transactionId) {
         Optional<TransResponseDto> transaction = transactionService.getTransactionById(transactionId);
         return transaction.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    // Get All Transactions
-    @GetMapping("get-all-trans")
+    @GetMapping("/get-all-trans")
     public ResponseEntity<List<TransResponseDto>> getAllTransactions() {
         return ResponseEntity.ok(transactionService.getAllTransactions());
     }

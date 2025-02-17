@@ -10,7 +10,7 @@ import java.util.List;
 
 @Repository
 public interface BankAccountRepository extends JpaRepository<BankAccountEntity, String> {
-    // <Entity class, Primary key datatype>
+    // <Entity class, Primary key datatype(wrapper class)>
     // JPA repository interacts with the database and handles CRUD operations.
 
     // Custom query: To fetch accounts by account type

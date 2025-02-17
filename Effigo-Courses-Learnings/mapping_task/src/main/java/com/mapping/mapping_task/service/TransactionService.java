@@ -3,6 +3,7 @@ package com.mapping.mapping_task.service;
 import com.mapping.mapping_task.dtos.TransRequestDto;
 import com.mapping.mapping_task.dtos.TransResponseDto;
 import com.mapping.mapping_task.entity.TransactionEntity;
+import com.mapping.mapping_task.mappers.TransactionMapper;
 import com.mapping.mapping_task.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,37 +18,24 @@ public class TransactionService {
     @Autowired
     private TransactionRepository transactionRepository;
 
-    // Create or Update Transaction
-    public TransResponseDto saveTransaction(TransRequestDto transRequestDto) {
-        TransactionEntity transactionEntity = new TransactionEntity();
-        transactionEntity.setTransactionId(transRequestDto.getTransactionId());
-        transactionEntity.setTransactionType(transRequestDto.getTransactionType());
-        transactionEntity.setTransactionAmount(transRequestDto.getTransactionAmount());
+    @Autowired
+    private TransactionMapper transactionMapper;
 
+    public TransResponseDto saveTransaction(TransRequestDto transRequestDto) {
+        TransactionEntity transactionEntity = transactionMapper.toEntity(transRequestDto);
         TransactionEntity savedTransaction = transactionRepository.save(transactionEntity);
-        return new TransResponseDto(savedTransaction.getTransactionId(),
-                savedTransaction.getTransactionType(),
-                savedTransaction.getTransactionAmount(),
-                savedTransaction);
+        return transactionMapper.toDto(savedTransaction);
     }
 
-    // Get Transaction by ID
     public Optional<TransResponseDto> getTransactionById(String transactionId) {
         return transactionRepository.findById(transactionId)
-                .map(transactionEntity -> new TransResponseDto(transactionEntity.getTransactionId(),
-                        transactionEntity.getTransactionType(),
-                        transactionEntity.getTransactionAmount(),
-                        transactionEntity));
+                .map(transactionMapper::toDto);
     }
 
-    // Get All Transactions
     public List<TransResponseDto> getAllTransactions() {
-        List<TransactionEntity> transactions = transactionRepository.findAll();
-        return transactions.stream()
-                .map(transaction -> new TransResponseDto(transaction.getTransactionId(),
-                        transaction.getTransactionType(),
-                        transaction.getTransactionAmount(),
-                        transaction))
+        return transactionRepository.findAll()
+                .stream()
+                .map(transactionMapper::toDto)
                 .collect(Collectors.toList());
     }
 

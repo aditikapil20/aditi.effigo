@@ -19,10 +19,9 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    // Create or Update User
     @PostMapping("/create-user")
-    public ResponseEntity<UserEntity> createUser(@RequestBody UserRequestDto userRequestDto) {
-        UserEntity savedUser = userService.saveUser(userRequestDto);
+    public ResponseEntity<UserResponseDto> createUser(@RequestBody UserRequestDto userRequestDto) {
+        UserResponseDto savedUser = userService.saveUser(userRequestDto);
         return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
     }
 
@@ -32,14 +31,11 @@ public class UserController {
         return userResponse.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-
     @GetMapping("/fetch-all-users")
     public ResponseEntity<List<UserResponseDto>> getAllUsers() {
         return ResponseEntity.ok(userService.getAllUsers());
     }
 
-
-    // Delete User by ID
     @DeleteMapping("/delete/{userId}")
     public ResponseEntity<Void> deleteUserById(@PathVariable String userId) {
         userService.deleteUserById(userId);
@@ -51,5 +47,4 @@ public class UserController {
         Optional<UserResponseDto> updatedUser = userService.updateUser(userId, userRequestDto);
         return updatedUser.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
-
 }
