@@ -10,15 +10,19 @@ function App() {
 
   return (
     <>
-    <BrowserRouter>
+    <BrowserRouter>       
+    {/* jb hum 1st time uss port pr jate h jb use hota h */}
      <HeaderComponent/>
-       <Routes>
+       <Routes>    
+        {/* reload nhi hota , alg alg route me switch ho jata hai */}
         {/* // https://localhost:3000  */}
         <Route path='/' element ={<ListEmployeecomponent/>}></Route>
         {/* // https://localhost:3000/employees  */}
         <Route path='/employees' element = {<ListEmployeecomponent/>}></Route>
        {/* // https://localhost:3000/add-employee */}
        <Route path='/add-employee' element = {<EmployeeComponent/>}></Route>
+        {/* // https://localhost:3000/edit-employee/{id} */}
+        <Route path='/edit-employee/:id' element ={<EmployeeComponent/>}></Route>
        </Routes>
 
      <FooterComponent/>

@@ -1,5 +1,5 @@
   import React, { useState } from "react";
-  import { useNavigate } from "react-router-dom";
+  import { useNavigate , useParams} from "react-router-dom";
   import { createEmployee } from "../services/EmployeeService";
 
   const EmployeeComponent = () => {
@@ -9,22 +9,23 @@
       email: "",
     });
 
-    const [errors, setErrors] = useState({}); // ✅ Validation Errors Store Karne Ke Liye
-    const [loading, setLoading] = useState(false); // ✅ Button Disabled Hone Ke Liye
+    const {id} = useParams();
+    const [errors, setErrors] = useState({}); //  Validation Errors Store Karne Ke Liye
+    const [loading, setLoading] = useState(false); //  Button Disabled Hone Ke Liye
     const navigate = useNavigate();
 
-    // ✅ Handle Input Change
+    //  Handle Input Change
     const handleChange = (e) => {
       setEmployee({ ...employee, [e.target.name]: e.target.value });
     };
 
-    // ✅ Validate Email Function
+    //  Validate Email Function
     const validateEmail = (email) => {
       const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-      return emailRegex.test(email);
-    };
+      return emailRegex.test(email); 
+    }; 
 
-    // ✅ Handle Form Submit
+    //  Handle Form Submit
     const handleSubmit = (e) => {
       e.preventDefault();
       let validationErrors = {};
@@ -43,9 +44,9 @@
 
       setErrors(validationErrors);
 
-      // ✅ Agar koi validation error nahi to API call karega
+      //  Agar koi validation error nahi to API call karega
       if (Object.keys(validationErrors).length === 0) {
-        setLoading(true); // ✅ Button disable karega
+        setLoading(true); //  Button disable karega
         createEmployee(employee)
           .then((response) => {
             console.log("Employee Added Successfully:", response.data);
@@ -57,14 +58,25 @@
             alert("Failed to add employee. Try again!");
           })
           .finally(() => {
-            setLoading(false); // ✅ API Response aane ke baad button enable hoga
+            setLoading(false); //  API Response aane ke baad button enable hoga
           });
       }
     };
 
+    function pageTitle(){
+      if(id){
+        return <h2 className="text-center mt-4">Update Employee</h2>
+      }
+      else{
+        return <h2 className="text-center mt-4">Add Employee</h2>
+      }
+    }
     return (
       <div className="container">
-        <h2 className="text-center mt-4">Add Employee</h2>
+        {/* <h2 className="text-center mt-4">Add Employee</h2> */}
+        {
+     pageTitle()
+        }
 
         <form onSubmit={handleSubmit} className="mt-3">
           <div className="mb-3">
@@ -106,7 +118,7 @@
             {errors.email && <div className="invalid-feedback">{errors.email}</div>}
           </div>
 
-          {/* ✅ Save Employee Button */}
+          {/*  Save Employee Button */}
           <button type="submit" className="btn btn-success w-100" disabled={loading}>
             {loading ? "Saving..." : "Save Employee"}
           </button>

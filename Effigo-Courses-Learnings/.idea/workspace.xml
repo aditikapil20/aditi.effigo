@@ -1,25 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8d475303-aa09-48bd-8475-211537c32e3b" name="Changes" comment="" />
+    <list default="true" id="8d475303-aa09-48bd-8475-211537c32e3b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/ems-frontend/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/ems-frontend/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/ems-frontend/src/components/EmployeeComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/ems-frontend/src/components/EmployeeComponent.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/ems-frontend/src/components/ListEmployeecomponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/ems-frontend/src/components/ListEmployeecomponent.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/ems-frontend/src/services/EmployeeService.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/ems-frontend/src/services/EmployeeService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ems-project/src/main/java/com/EMS/ems_project/WebConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ems-project/src/main/java/com/EMS/ems_project/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ems-project/src/main/java/com/EMS/ems_project/controller/EmployeeController.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2t4iZrXc7jWN2aKq2LpkIBEflOq" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
