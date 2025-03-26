@@ -7,10 +7,9 @@ import axios from "axios";
 
 const MultiCurrencyImport = () => {
     const [file, setFile] = useState(null);
-    const [excelData, setExcelData] = useState([]); // State to hold parsed Excel data
+    const [excelData, setExcelData] = useState([]);
     const navigate = useNavigate();
 
-    // Handle file selection
     const handleFileChange = (event) => {
         const selectedFile = event.target.files[0];
         if (selectedFile && (selectedFile.name.endsWith(".xls") || selectedFile.name.endsWith(".xlsx"))) {
@@ -23,26 +22,23 @@ const MultiCurrencyImport = () => {
         }
     };
 
-    // Read Excel file and parse data into JSON
     const readExcel = (file) => {
         const reader = new FileReader();
         reader.readAsBinaryString(file);
         reader.onload = (e) => {
             const binaryData = e.target.result;
             const workbook = XLSX.read(binaryData, { type: "binary" });
-            const sheetName = workbook.SheetNames[0]; // Get first sheet
+            const sheetName = workbook.SheetNames[0];
             const sheet = workbook.Sheets[sheetName];
-            const parsedData = XLSX.utils.sheet_to_json(sheet); // Convert sheet to JSON
+            const parsedData = XLSX.utils.sheet_to_json(sheet);
             setExcelData(parsedData);
         };
     };
 
-    // Handle import button click
     const handleImportClick = () => {
         document.getElementById("fileInput").click();
     };
 
-    // Handle form submission (send data to backend)
     const handleSubmit = async () => {
         if (!file) {
             alert("Please select a valid Excel file before submitting.");
@@ -70,13 +66,19 @@ const MultiCurrencyImport = () => {
         }
     };
 
-    // Handle template download
     const handleDownloadTemplate = () => {
-        const templateUrl = "/templates/multi_currency_template.xlsx";
-        window.location.href = templateUrl;
+        const fileUrl = "https://multi-currency-project-bucket.s3.us-east-1.amazonaws.com/multi_currency_template_file.xlsx";
+    
+        const link = document.createElement("a");
+        link.href = fileUrl;
+        link.setAttribute("download", "multi_currency_template_file.xlsx"); 
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
     };
+    
+    
 
-    // Handle back navigation
     const handleBack = () => {
         navigate("/multi-currency-details");
     };

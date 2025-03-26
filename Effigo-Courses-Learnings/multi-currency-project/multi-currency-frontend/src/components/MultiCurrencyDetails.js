@@ -26,7 +26,7 @@ const MultiCurrencyDetails = () => {
     const handleCheckboxChange = (id) => {
         setSelectedRows((prevSelected) =>
             prevSelected.includes(id)
-                ? prevSelected.filter((rowId) => rowId !== id) // Unselect
+                ? prevSelected.filter((rowId) => rowId !== id) 
                 : [...prevSelected, id] // Select
         );
     };
@@ -39,12 +39,12 @@ const MultiCurrencyDetails = () => {
 
         if (window.confirm(`Are you sure you want to delete ${selectedRows.length} records?`)) {
             axios.delete("http://localhost:8080/api/multi-currency/delete", {
-                data: selectedRows, // Sending selected row IDs
+                data: selectedRows,
             })
             .then(() => {
                 alert("Selected records deleted successfully.");
-                setSelectedRows([]); // Clear selection
-                fetchData(); // Refresh table
+                setSelectedRows([]); 
+                fetchData();
             })
             .catch((error) => {
                 alert("Error deleting records.");
